@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="media/to-do-list.png" />
+        <link rel="stylesheet" href="style.css" id="theme-style" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+        <title>Lista de Tarefas (Task List)</title>
+    </head>
+    <body>
+        <h1>To Do List</h1>
+
+        <button class="darkBtn" onclick="toggleTheme()">Alternar Tema</button>
+
+        <div class="divBack">
+            <div class="postIt">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Digite uma Tarefa"
+                />
+
+                <button class="btn" onclick="addTask()">Adicionar Tarefa</button>
+
+                <ul id="taskList">
+                    <!-- Lista de tarefas será inserida aqui -->
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function addTask() {
+                var taskInput = document.getElementById('taskInput');
+                var taskText = taskInput.value.trim();
+
+                if (taskText !== '') {
+                    var taskList = document.getElementById('taskList');
+                    var li = document.createElement('li');
+                    li.className = 'taskItem';
+
+                    var maxLength = 20; // Define o comprimento máximo desejado das listas para qubrar linha
+                    var lines = [];
+                    while (taskText.length > maxLength) {
+                        lines.push(taskText.substring(0, maxLength));
+                        taskText = taskText.substring(maxLength);
+                    }
+                    lines.push(taskText);
+
+                    var html = '';
+                    lines.forEach(function (line, index) {
+                        html += line;
+                        if (index < lines.length - 1) {
+                            html += '<br>';
+                        }
+                    });
+
+                    li.innerHTML =
+                        html +
+                        '<button class="removeButton" onclick="removeTask(this)"><img src="media/delete.png"/></button>';
+
+                    taskList.appendChild(li);
+                    taskInput.value = '';
+                } else {
+                    alert('Por favor, insira uma tarefa válida.');
+                }
+            }
+
+            function removeTask(button) {
+                var li = button.parentNode;
+                var ul = li.parentNode;
+                ul.removeChild(li);
+            }
+
+            document
+                .getElementById('taskInput')
+                .addEventListener('keypress', function (event) {
+                    if (event.key === 'Enter') {
+                        addTask();
+                    }
+                });
+
+
+        </script>
+
+        <script src="function.js"></script>
+    </body>
+    <footer><p>Desenvolvido por Henrike P.B. | 2024 &copy;</p></footer>
+</html>

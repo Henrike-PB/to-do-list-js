@@ -1,0 +1,113 @@
+body {
+    width: fit-content(18.75rem, 70.588vw + 5.515rem, 93.75rem);
+    font-size: clamp(0.75rem, 0.5417rem + 1.1111vw, 1.875rem);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.darkBtn{
+    width: 9%;
+    height: 30px;
+    border: none;
+    background-color: rgb(241, 233, 157);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.darkBtn:hover{
+    background-color: rgb(114, 109, 109);
+    color: antiquewhite;
+}
+
+.btn {
+    width: 70%;
+    height: 25px;
+    border: none;
+    background-color: bisque;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+.btn:hover{
+background-color: burlywood;
+
+}
+
+.divBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postIt {
+    background-color: rgb(252, 220, 116);
+    box-shadow: 13px 13px 9px 1px;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+#taskInput {
+    height: 25px;
+    width: 70%;
+    margin-bottom: 10px;
+    border: none;
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background-color: rgb(224, 195, 98);
+    border-radius: 5px;
+}
+
+.taskItem {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.removeButton {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    
+    transform: translateY(35rem);
+    bottom: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #7f8c8dda; 
+    border-radius: 4px; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #616161; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: #dfe6e9; 
+}
